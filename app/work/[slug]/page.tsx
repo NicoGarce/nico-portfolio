@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/social-icons";
+import { LivePreview } from "@/components/live-preview";
 import { projects } from "@/data/projects";
 import { Footer } from "@/components/footer";
 
@@ -72,18 +73,24 @@ export default async function CaseStudyPage({
             </p>
           </div>
 
-          <div className="relative mb-16 aspect-[16/9] overflow-hidden rounded-2xl border border-border bg-surface">
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `radial-gradient(circle at 30% 50%, ${project.color}30, transparent 70%)`,
-              }}
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-8xl font-bold text-foreground/[0.06]">
-                {project.title}
-              </span>
-            </div>
+          <div className="relative mb-16 overflow-hidden rounded-2xl border border-border bg-surface">
+            {project.liveUrl ? (
+              <LivePreview url={project.liveUrl} title={project.title} />
+            ) : (
+              <div className="aspect-[16/9]">
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `radial-gradient(circle at 30% 50%, ${project.color}30, transparent 70%)`,
+                  }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-8xl font-bold text-foreground/[0.06]">
+                    {project.title}
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="mb-16 flex flex-wrap gap-3">
@@ -148,19 +155,25 @@ export default async function CaseStudyPage({
           <div className="mt-20">
             <h2 className="mb-8 text-2xl font-bold">Gallery</h2>
             <div className="grid gap-4">
-              {project.gallery.map((image, i) => (
-                <div
-                  key={i}
-                  className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border bg-surface"
-                >
+              {project.gallery.length > 0 ? (
+                project.gallery.map((image, i) => (
                   <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${project.color}15, transparent 60%)`,
-                    }}
-                  />
-                </div>
-              ))}
+                    key={i}
+                    className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border bg-surface"
+                  >
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(135deg, ${project.color}15, transparent 60%)`,
+                      }}
+                    />
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  No additional screenshots available.
+                </p>
+              )}
             </div>
           </div>
         </article>

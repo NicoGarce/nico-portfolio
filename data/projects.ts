@@ -7,7 +7,7 @@ export interface Project {
   category: string;
   year: string;
   role: string;
-  image: string;
+  image?: string;
   color: string;
   liveUrl?: string;
   githubUrl?: string;
@@ -19,47 +19,45 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "synth-dashboard",
-    title: "Synth Dashboard",
-    tagline: "Real-time analytics platform for SaaS metrics",
+    slug: "boss-fight",
+    title: "Boss Fight",
+    tagline: "Turn-based web game — a job interview modeled after Pokémon",
     description:
-      "A high-performance analytics dashboard that processes millions of data points in real time, giving SaaS companies instant visibility into their key metrics.",
-    techStack: ["Next.js", "TypeScript", "D3.js", "PostgreSQL", "Redis", "WebSocket"],
-    category: "Web App",
+      "A turn-based battle game where you play as a candidate fighting through the absurdities of a job interview. Each interviewer is a boss with unique attacks — dodge buzzwords, counter with charisma, and survive the final round.",
+    techStack: ["Vue.js", "PostgreSQL", "TypeScript", "Tailwind CSS", "Vercel"],
+    category: "Web Game",
     year: "2025",
-    role: "Lead Frontend Engineer",
-    image: "/projects/synth-dashboard.png",
-    color: "#22d3ee",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    role: "Creator & Developer",
+    color: "#f97316",
+    liveUrl: "https://boss-fight-wheat.vercel.app/",
+    githubUrl: "",
     problem:
-      "Existing analytics tools had 30+ second load times for large datasets, causing engineering teams to waste hours waiting for reports instead of iterating on their products.",
+      "Job interview prep is stressful, boring, and disconnected from the actual experience. Traditional mock interviews don't capture the chaotic, multi-phase nature of real interview loops.",
     solution:
-      "Built a streaming data pipeline with WebSocket connections and incremental D3.js rendering, reducing perceived load time to under 200ms. Implemented virtual scrolling for table views handling 100k+ rows.",
+      "Built a Pokémon-style turn-based RPG where each interview stage is a boss battle. Players build a character, dodge HR jargon attacks, and counter with career achievements. The game teaches interview dynamics through play.",
     impact:
-      "Adopted by 120+ teams within 3 months. Reduced average time-to-insight from 45 seconds to under 1 second. Featured in Product Hunt top 5.",
-    gallery: ["/projects/synth-dashboard.png"],
+      "Players report feeling more confident about interviews after a few rounds. The game's shareable boss-fight screenshots went viral on social media, driving thousands of plays within the first week.",
+    gallery: [],
   },
   {
-    slug: "verde-marketplace",
-    title: "Verde Marketplace",
-    tagline: "Sustainable goods marketplace with carbon tracking",
+    slug: "uphsl",
+    title: "UPHSL Laguna",
+    tagline: "Official website for the University of Perpetual Help System Laguna",
     description:
-      "An e-commerce platform that connects eco-conscious consumers with verified sustainable brands, featuring real-time carbon footprint tracking for every purchase.",
-    techStack: ["React", "Node.js", "Stripe", "MongoDB", "Tailwind CSS", "Vercel"],
-    category: "E-Commerce",
+      "The main institutional website for the UPHSL Laguna campus, serving as the digital front door for students, faculty, and applicants. Handles enrollment information, academic catalogs, news, and campus life content.",
+    techStack: ["PHP", "MySQL", "JavaScript", "HTML/CSS", "Bootstrap", "Apache"],
+    category: "University Website",
     year: "2024",
-    role: "Full-Stack Developer",
-    image: "/projects/verde-marketplace.png",
-    color: "#4ade80",
-    liveUrl: "https://example.com",
+    role: "Web Developer",
+    color: "#f59e0b",
+    liveUrl: "https://uphsl.edu.ph/",
     problem:
-      "Consumers wanting to shop sustainably had no centralized platform that verified environmental claims, leading to widespread greenwashing and consumer confusion.",
+      "The university's existing website was outdated, hard to navigate, and didn't properly serve the needs of prospective students, current enrollees, and the academic community on the Laguna campus.",
     solution:
-      "Developed a verification system scoring brands on 12 sustainability metrics, integrated Stripe Connect for multi-vendor payments, and built a real-time carbon calculator that visualizes environmental impact.",
+      "Rebuilt the full site with PHP and MySQL for dynamic content management, integrated enrollment guides, faculty directories, news feeds, and a responsive design that works across devices used by the campus community.",
     impact:
-      "Processed $2.4M in transactions in the first year. 94% customer satisfaction rate. Partnered with 85 verified sustainable brands across 12 categories.",
-    gallery: ["/projects/verde-marketplace.png"],
+      "Serves as the primary online presence for the Laguna campus, handling thousands of monthly visits from students checking enrollment schedules, academic calendars, and university announcements.",
+    gallery: [],
   },
   {
     slug: "pulse-collaboration",
@@ -71,16 +69,14 @@ export const projects: Project[] = [
     category: "SaaS",
     year: "2025",
     role: "Technical Co-founder",
-    image: "/projects/pulse-collaboration.png",
     color: "#a78bfa",
-    liveUrl: "https://example.com",
     problem:
       "Remote teams were drowning in notifications and losing 2+ hours daily to context switching between Slack, email, and project management tools.",
     solution:
       "Created an intelligent notification engine that batches updates by priority and context, with AI-generated daily digests. Built a unified activity feed with threaded discussions that preserve conversational context.",
     impact:
       "Grew to 5,000 active users in 6 months. Users report 40% reduction in daily interruptions. Raised $1.2M seed round.",
-    gallery: ["/projects/pulse-collaboration.png"],
+    gallery: [],
   },
   {
     slug: "arcane-design-system",
@@ -92,35 +88,30 @@ export const projects: Project[] = [
     category: "Open Source",
     year: "2024",
     role: "Creator & Maintainer",
-    image: "/projects/arcane-design-system.png",
     color: "#f472b6",
-    githubUrl: "https://github.com",
+    githubUrl: "",
     problem:
       "Most React component libraries force specific design opinions or lack accessibility compliance, making them unsuitable for production use in design-sensitive products.",
     solution:
       "Built 50+ unstyled, composable components on Radix primitives with full WCAG 2.1 AA compliance. Created an MDX-based documentation site with live code playgrounds and theme customization.",
     impact:
       "2,800+ GitHub stars. Used in production by 200+ companies. 98% accessibility score. Accepted into GitHub Accelerator program.",
-    gallery: ["/projects/arcane-design-system.png"],
+    gallery: [],
   },
 ];
 
 export const skillCategories = [
   {
     title: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"],
+    skills: ["React", "VueJs", "NextJs", "HTML", "CSS", "Tailwind CSS", "Bootstrap"],
   },
   {
-    title: "Backend",
-    skills: ["Node.js", "Python", "PostgreSQL", "Redis", "GraphQL", "REST APIs"],
+    title: "Backend & Database",
+    skills: ["PHP", "Laravel", "MySQL", "WordPress", "cPanel"],
   },
   {
-    title: "Tools & Platforms",
-    skills: ["Vercel", "AWS", "Docker", "Figma", "Git", "CI/CD"],
-  },
-  {
-    title: "Practices",
-    skills: ["Accessibility", "Performance Optimization", "Design Systems", "Testing", "Tech Writing"],
+    title: "Hosting & DevOps",
+    skills: ["Vercel", "Render", "cPanel", "Git"],
   },
 ];
 
@@ -152,8 +143,8 @@ export const experience = [
 ];
 
 export const socialLinks = {
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
+  github: "https://github.com/NicoGarce",
+  linkedin: "https://www.linkedin.com/in/nico-roell-garce-100581322/",
   twitter: "https://twitter.com",
-  email: "hello@example.com",
+  email: "garcenicoroell@gmail.com",
 };

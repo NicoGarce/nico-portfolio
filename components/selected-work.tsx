@@ -1,11 +1,53 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "./social-icons";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { ScrollReveal } from "./scroll-reveal";
+
+function screenshotUrl(url: string) {
+  return `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/`;
+}
+
+function ProjectPreview({ project, index }: { project: typeof projects[number]; index: number }) {
+  const [failed, setFailed] = useState(false);
+
+  if (!project.liveUrl || failed) {
+    return (
+      <>
+        <div
+          className="absolute inset-0 opacity-20 transition-opacity duration-500 group-hover:opacity-40"
+          style={{
+            background: `radial-gradient(circle at 30% 50%, ${project.color}40, transparent 70%)`,
+          }}
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.span
+            className="text-6xl font-bold text-foreground/[0.06]"
+            whileHover={{ scale: 1.05 }}
+          >
+            {String(index + 1).padStart(2, "0")}
+          </motion.span>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <Image
+      src={screenshotUrl(project.liveUrl)}
+      alt={`Screenshot of ${project.title}`}
+      fill
+      className="object-cover object-top transition-all duration-500 group-hover:scale-105"
+      onError={() => setFailed(true)}
+      sizes="(max-width: 768px) 100vw, 50vw"
+    />
+  );
+}
 
 export function SelectedWork() {
   return (
@@ -30,20 +72,7 @@ export function SelectedWork() {
               <Link href={`/work/${project.slug}`} className="group block">
                 <article className="relative overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5">
                   <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-surface to-background">
-                    <div
-                      className="absolute inset-0 opacity-20 transition-opacity duration-500 group-hover:opacity-40"
-                      style={{
-                        background: `radial-gradient(circle at 30% 50%, ${project.color}40, transparent 70%)`,
-                      }}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.span
-                        className="text-6xl font-bold text-foreground/[0.06]"
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </motion.span>
-                    </div>
+                    <ProjectPreview project={project} index={index} />
                     <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
                   </div>
 

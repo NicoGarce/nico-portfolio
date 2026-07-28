@@ -21,21 +21,20 @@ export function About() {
             <ScrollReveal delay={0.1}>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  I&apos;m a full-stack developer with a passion for building products
-                  that sit at the intersection of engineering and design. With 5+
-                  years of experience, I&apos;ve worked across the stack — from
-                  crafting pixel-perfect interfaces to designing resilient backend
-                  architectures.
+                  I&apos;m Nico Garce, a full-stack developer with experience building
+                  web applications from the ground up. I work across the stack —
+                  from PHP and Laravel backends to Vue and React frontends.
                 </p>
                 <p>
-                  Currently, I&apos;m building Pulse, an async-first collaboration tool
-                  for distributed teams. Previously, I helped ship developer tools
-                  at Vercel and payment infrastructure at Stripe.
+                  I built the UPHSL Laguna campus website using PHP and MySQL, and
+                  created Boss Fight, a Vue-powered turn-based web game where job
+                  interviews feel like Pokémon battles. I&apos;m comfortable with
+                  cPanel, Vercel, Render, WordPress, and everything in between.
                 </p>
                 <p>
-                  When I&apos;m not writing code, you&apos;ll find me contributing to
-                  open-source projects, writing about web development, or exploring
-                  the latest in AI and creative technology.
+                  I enjoy turning ideas into real, working products — whether
+                  that&apos;s a university portal, a web game, or something in
+                  between.
                 </p>
               </div>
             </ScrollReveal>

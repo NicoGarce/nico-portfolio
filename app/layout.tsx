@@ -15,24 +15,24 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Portfolio — Developer & Designer",
-    template: "%s | Portfolio",
+    default: "Nico Garce — Developer & Designer",
+    template: "%s | Nico Garce",
   },
   description:
     "Full-stack developer crafting high-performance web applications with clean architecture and thoughtful interfaces.",
-  keywords: ["developer", "portfolio", "web development", "full-stack", "React", "Next.js"],
-  authors: [{ name: "Your Name" }],
+  keywords: ["developer", "portfolio", "web development", "full-stack", "React", "Next.js", "Nico Garce", "PHP", "Laravel"],
+  authors: [{ name: "Nico Garce" }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Portfolio",
-    title: "Portfolio — Developer & Designer",
+    siteName: "Nico Garce",
+    title: "Nico Garce — Developer & Designer",
     description:
       "Full-stack developer crafting high-performance web applications with clean architecture and thoughtful interfaces.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio — Developer & Designer",
+    title: "Nico Garce — Developer & Designer",
     description:
       "Full-stack developer crafting high-performance web applications with clean architecture and thoughtful interfaces.",
   },

@@ -94,7 +94,9 @@ export function Hero() {
     };
   }, [prefersReducedMotion]);
 
-  const headline = "I build things for the web.";
+  const headline = "Nico Garce";
+
+  const subtitle = "Full-stack developer who builds things for the web.";
 
   return (
     <section
@@ -138,14 +140,26 @@ export function Hero() {
           ))}
         </h1>
 
-        <motion.p
+<motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
           className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl"
         >
-          Full-stack developer crafting high-performance web applications with
-          clean architecture and thoughtful interfaces.
+          {subtitle.split("").map((char, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.3,
+                delay: 1.2 + i * 0.015,
+              }}
+              className="inline-block"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
         </motion.p>
 
         <motion.div
