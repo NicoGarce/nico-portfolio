@@ -18,27 +18,28 @@ export function Nav() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      const navHeight = 80;
+      const scrollPos = window.scrollY + navHeight + 1;
+
+      const sections = document.querySelectorAll("section[id]");
+      let current = "";
+
+      sections.forEach((section) => {
+        const el = section as HTMLElement;
+        const top = el.offsetTop;
+        const bottom = top + el.offsetHeight;
+        if (scrollPos >= top && scrollPos < bottom) {
+          current = `#${el.id}`;
+        }
+      });
+
+      setActiveSection(current);
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: "-80px 0px 0px 0px" }
-    );
-
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => observer.observe(section));
-
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -63,7 +64,7 @@ export function Nav() {
           href="#"
           className="text-lg font-bold tracking-tight transition-colors hover:text-accent"
         >
-          portfolio<span className="text-accent">.</span>
+          nico<span className="text-accent">.</span>garce
         </a>
 
         <div className="flex items-center gap-1">
@@ -78,7 +79,6 @@ export function Nav() {
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
-              {link.label}
               {activeSection === link.href && (
                 <motion.div
                   layoutId="activeNav"
@@ -86,6 +86,7 @@ export function Nav() {
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
+              <span className="relative z-10">{link.label}</span>
             </a>
           ))}
           <div className="ml-2">

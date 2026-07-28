@@ -214,7 +214,7 @@ export function Contact() {
 
               <div className="mt-12 rounded-2xl border border-border bg-surface p-6">
                 <p className="text-sm text-muted-foreground">
-                  Currently based in San Francisco, CA. Open to remote
+                  Currently based in Metro Manila, Philippines. Open to remote
                   collaboration worldwide. Usually respond within 24 hours.
                 </p>
               </div>

@@ -117,28 +117,36 @@ export const skillCategories = [
 
 export const experience = [
   {
-    company: "Pulse",
-    role: "Technical Co-founder",
-    period: "2024 — Present",
-    logo: "🚀",
+    company: "University of Perpetual Help System Laguna",
+    role: "Web Administrator",
+    period: "Sep 2025 — Present",
+    logo: "U",
+    description:
+      "Website development for JONELTA System campuses using PHP, MySQL, and cPanel. Manage Google, Microsoft, Moodle, and Information System accounts. Build in-house systems and deploy student project web applications. Also produce multimedia content with Canva, Photoshop, and Premiere Pro.",
   },
   {
-    company: "Vercel",
-    role: "Senior Frontend Engineer",
-    period: "2022 — 2024",
-    logo: "▲",
+    company: "J'Diamond Car Rental Services Inc.",
+    role: "TMD Staff",
+    period: "Mar 2025 — Aug 2025",
+    logo: "J",
+    description:
+      "Website development using WordPress, hardware and software troubleshooting and repair, multimedia editing, social media management, CCTV monitoring, and photography and videography.",
   },
   {
-    company: "Stripe",
-    role: "Software Engineer",
-    period: "2020 — 2022",
-    logo: "S",
+    company: "OrangeApps Inc.",
+    role: "Junior Software Engineer",
+    period: "Sep 2024 — Jan 2025",
+    logo: "O",
+    description:
+      "Developed features for in-house School Management Systems using Laravel, MySQL, and JavaScript for schools across the Philippines.",
   },
   {
-    company: "Figma",
-    role: "Frontend Engineer (Intern)",
-    period: "2019",
-    logo: "F",
+    company: "Pamantasan ng Lungsod ng Muntinlupa",
+    role: "Web Developer Intern",
+    period: "Oct 2023 — May 2024",
+    logo: "P",
+    description:
+      "Built an Internship Placement System using PHP, MySQL, and Bootstrap. Responsible for testing, debugging, and managing weekly tasks for a two-man team.",
   },
 ];
 

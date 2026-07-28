@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { experience, skillCategories } from "@/data/projects";
 import { ScrollReveal } from "./scroll-reveal";
+import { cn } from "@/lib/utils";
 
 export function About() {
+  const [hoveredExp, setHoveredExp] = useState<number | null>(null);
+
   return (
     <section id="about" className="px-6 py-32">
       <div className="mx-auto max-w-6xl">
@@ -21,20 +25,21 @@ export function About() {
             <ScrollReveal delay={0.1}>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  I&apos;m Nico Garce, a full-stack developer with experience building
-                  web applications from the ground up. I work across the stack —
-                  from PHP and Laravel backends to Vue and React frontends.
+                  I&apos;m Nico Garce, a web administrator and developer currently
+                  managing websites across the JONELTA System campuses at UPHSL
+                  Laguna. I work with PHP, MySQL, Laravel, and WordPress — building
+                  and maintaining web applications from the ground up.
                 </p>
                 <p>
-                  I built the UPHSL Laguna campus website using PHP and MySQL, and
-                  created Boss Fight, a Vue-powered turn-based web game where job
-                  interviews feel like Pokémon battles. I&apos;m comfortable with
-                  cPanel, Vercel, Render, WordPress, and everything in between.
+                  I built the UPHSL Laguna campus website and created Boss Fight, a
+                  Vue-powered turn-based web game. I&apos;ve also developed features
+                  for school management systems at OrangeApps and built an
+                  internship placement platform for PLMUN.
                 </p>
                 <p>
-                  I enjoy turning ideas into real, working products — whether
-                  that&apos;s a university portal, a web game, or something in
-                  between.
+                  Beyond development, I handle Google Workspace, Microsoft 365, and
+                  Moodle administration, and I produce multimedia content using
+                  Canva, Photoshop, and Premiere Pro.
                 </p>
               </div>
             </ScrollReveal>
@@ -45,23 +50,37 @@ export function About() {
                   Experience
                 </h3>
                 <div className="space-y-1">
-                  {experience.map((exp) => (
+                  {experience.map((exp, i) => (
                     <div
                       key={exp.company}
-                      className="flex items-center gap-4 rounded-xl p-3 transition-colors hover:bg-surface"
+                      className="rounded-xl transition-colors"
+                      onMouseEnter={() => setHoveredExp(i)}
+                      onMouseLeave={() => setHoveredExp(null)}
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-background text-lg font-bold">
-                        {exp.logo}
-                      </span>
-                      <div className="flex-1">
-                        <p className="text-sm font-medium">{exp.role}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {exp.company}
+                      <div className="flex items-center gap-4 rounded-xl p-3 transition-colors hover:bg-surface">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-background text-lg font-bold">
+                          {exp.logo}
+                        </span>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium">{exp.role}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {exp.company}
+                          </p>
+                        </div>
+                        <span className="text-xs text-muted-foreground">
+                          {exp.period}
+                        </span>
+                      </div>
+                      <div
+                        className={cn(
+                          "overflow-hidden transition-all duration-300",
+                          hoveredExp === i ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                        )}
+                      >
+                        <p className="border-l-2 border-accent/30 ml-6 pl-4 py-2 text-xs leading-relaxed text-muted-foreground">
+                          {exp.description}
                         </p>
                       </div>
-                      <span className="text-xs text-muted-foreground">
-                        {exp.period}
-                      </span>
                     </div>
                   ))}
                 </div>
