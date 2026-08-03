@@ -82,7 +82,7 @@ export const projects: Project[] = [
   {
     slug: "hrms",
     title: "HRMS",
-    tagline: "Human resource management system — manage your workforce with confidence",
+    tagline: "Human resource management system — manage your workforce.",
     description:
       "A human resource management system that helps organizations manage their workforce with confidence — from employee records to day-to-day HR operations.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
