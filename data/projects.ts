@@ -41,7 +41,7 @@ export const projects: Project[] = [
   },
   {
     slug: "uphsl",
-    title: "UPHSL Laguna",
+    title: "University of Perpetual Help System Laguna",
     tagline: "Official website for the University of Perpetual Help System Laguna",
     description:
       "The main institutional website for the UPHSL Laguna campus, serving as the digital front door for students, faculty, and applicants. Handles enrollment information, academic catalogs, news, and campus life content.",
@@ -60,42 +60,43 @@ export const projects: Project[] = [
     gallery: [],
   },
   {
-    slug: "pulse-collaboration",
-    title: "Pulse",
-    tagline: "Async-first team collaboration tool",
+    slug: "rides-tayo",
+    title: "Rides Tayo",
+    tagline: "Ride together, hear each other — a modern ride-sharing platform",
     description:
-      "A collaboration platform designed for distributed teams, prioritizing asynchronous communication with intelligent notification batching and context-aware updates.",
-    techStack: ["Next.js", "TypeScript", "Prisma", "Supabase", "Framer Motion", "OpenAI"],
-    category: "SaaS",
+      "A ride-sharing platform designed to connect drivers and passengers in a simple, reliable way. Ride together, hear each other.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    category: "Web App",
     year: "2025",
-    role: "Technical Co-founder",
-    color: "#a78bfa",
+    role: "Developer",
+    color: "#34d399",
+    liveUrl: "https://rides-tayo.vercel.app/",
     problem:
-      "Remote teams were drowning in notifications and losing 2+ hours daily to context switching between Slack, email, and project management tools.",
+      "Commuters need a straightforward way to book rides and connect with drivers without the friction of complex platforms.",
     solution:
-      "Created an intelligent notification engine that batches updates by priority and context, with AI-generated daily digests. Built a unified activity feed with threaded discussions that preserve conversational context.",
+      "Built a clean, easy-to-use ride-sharing web app where passengers can find rides and drivers can manage trips, all in one place.",
     impact:
-      "Grew to 5,000 active users in 6 months. Users report 40% reduction in daily interruptions. Raised $1.2M seed round.",
+      "Provides a lightweight, accessible ride-sharing experience deployed and accessible to anyone online.",
     gallery: [],
   },
   {
-    slug: "arcane-design-system",
-    title: "Arcane UI",
-    tagline: "Open-source design system with 50+ components",
+    slug: "hrms",
+    title: "HRMS",
+    tagline: "Human resource management system — manage your workforce with confidence",
     description:
-      "A comprehensive, accessible design system built on Radix primitives with full TypeScript support, dark mode, and extensive documentation.",
-    techStack: ["React", "TypeScript", "Radix UI", "Storybook", "Tailwind CSS", "MDX"],
-    category: "Open Source",
-    year: "2024",
-    role: "Creator & Maintainer",
-    color: "#f472b6",
-    githubUrl: "",
+      "A human resource management system that helps organizations manage their workforce with confidence — from employee records to day-to-day HR operations.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    category: "Web App",
+    year: "2025",
+    role: "Developer",
+    color: "#60a5fa",
+    liveUrl: "https://hrms-seven-silk.vercel.app/",
     problem:
-      "Most React component libraries force specific design opinions or lack accessibility compliance, making them unsuitable for production use in design-sensitive products.",
+      "Managing employee data and HR processes with spreadsheets is error-prone and hard to scale as a team grows.",
     solution:
-      "Built 50+ unstyled, composable components on Radix primitives with full WCAG 2.1 AA compliance. Created an MDX-based documentation site with live code playgrounds and theme customization.",
+      "Built an HRMS web app with a secure sign-in flow and clean interface for managing employee and workforce information.",
     impact:
-      "2,800+ GitHub stars. Used in production by 200+ companies. 98% accessibility score. Accepted into GitHub Accelerator program.",
+      "Gives organizations a central, confident way to handle HR operations from anywhere.",
     gallery: [],
   },
 ];
@@ -120,7 +121,6 @@ export const experience = [
     company: "University of Perpetual Help System Laguna",
     role: "Web Administrator",
     period: "Sep 2025 — Present",
-    logo: "U",
     description:
       "Website development for JONELTA System campuses using PHP, MySQL, and cPanel. Manage Google, Microsoft, Moodle, and Information System accounts. Build in-house systems and deploy student project web applications. Also produce multimedia content with Canva, Photoshop, and Premiere Pro.",
   },
@@ -128,7 +128,6 @@ export const experience = [
     company: "J'Diamond Car Rental Services Inc.",
     role: "TMD Staff",
     period: "Mar 2025 — Aug 2025",
-    logo: "J",
     description:
       "Website development using WordPress, hardware and software troubleshooting and repair, multimedia editing, social media management, CCTV monitoring, and photography and videography.",
   },
@@ -136,7 +135,6 @@ export const experience = [
     company: "OrangeApps Inc.",
     role: "Junior Software Engineer",
     period: "Sep 2024 — Jan 2025",
-    logo: "O",
     description:
       "Developed features for in-house School Management Systems using Laravel, MySQL, and JavaScript for schools across the Philippines.",
   },
@@ -144,7 +142,6 @@ export const experience = [
     company: "Pamantasan ng Lungsod ng Muntinlupa",
     role: "Web Developer Intern",
     period: "Oct 2023 — May 2024",
-    logo: "P",
     description:
       "Built an Internship Placement System using PHP, MySQL, and Bootstrap. Responsible for testing, debugging, and managing weekly tasks for a two-man team.",
   },
@@ -153,6 +150,5 @@ export const experience = [
 export const socialLinks = {
   github: "https://github.com/NicoGarce",
   linkedin: "https://www.linkedin.com/in/nico-roell-garce-100581322/",
-  twitter: "https://twitter.com",
   email: "garcenicoroell@gmail.com",
 };

@@ -25,14 +25,6 @@ export function Footer() {
           >
             LinkedIn
           </a>
-          <a
-            href={socialLinks.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Twitter
-          </a>
         </div>
       </div>
     </footer>

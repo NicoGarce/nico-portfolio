@@ -1,13 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { experience, skillCategories } from "@/data/projects";
 import { ScrollReveal } from "./scroll-reveal";
-import { cn } from "@/lib/utils";
 
 export function About() {
-  const [hoveredExp, setHoveredExp] = useState<number | null>(null);
-
   return (
     <section id="about" className="px-6 py-32">
       <div className="mx-auto max-w-6xl">
@@ -25,65 +21,23 @@ export function About() {
             <ScrollReveal delay={0.1}>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  I&apos;m Nico Garce, a web administrator and developer currently
-                  managing websites across the JONELTA System campuses at UPHSL
-                  Laguna. I work with PHP, MySQL, Laravel, and WordPress — building
-                  and maintaining web applications from the ground up.
+                  I&apos;m Nico Garce, a web developer and administrator who
+                  enjoys building practical web applications and maintaining the
+                  systems that keep organizations running. From full websites to
+                  internal tools, I like taking projects from an idea all the way
+                  to deployment.
                 </p>
                 <p>
-                  I built the UPHSL Laguna campus website and created Boss Fight, a
-                  Vue-powered turn-based web game. I&apos;ve also developed features
-                  for school management systems at OrangeApps and built an
-                  internship placement platform for PLMUN.
+                  My work spans frontend interfaces, backend logic, and database
+                  design. I care about clean, usable code and making sure
+                  whatever I build is reliable and easy to maintain.
                 </p>
                 <p>
-                  Beyond development, I handle Google Workspace, Microsoft 365, and
-                  Moodle administration, and I produce multimedia content using
-                  Canva, Photoshop, and Premiere Pro.
+                  Beyond development, I also manage platform accounts, handle
+                  technical administration, and create multimedia content. I
+                  enjoy learning new technologies and wearing multiple hats when
+                  a project calls for it.
                 </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.2}>
-              <div className="mt-12">
-                <h3 className="mb-6 text-sm font-medium uppercase tracking-widest text-muted-foreground">
-                  Experience
-                </h3>
-                <div className="space-y-1">
-                  {experience.map((exp, i) => (
-                    <div
-                      key={exp.company}
-                      className="rounded-xl transition-colors"
-                      onMouseEnter={() => setHoveredExp(i)}
-                      onMouseLeave={() => setHoveredExp(null)}
-                    >
-                      <div className="flex items-center gap-4 rounded-xl p-3 transition-colors hover:bg-surface">
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-background text-lg font-bold">
-                          {exp.logo}
-                        </span>
-                        <div className="flex-1">
-                          <p className="text-sm font-medium">{exp.role}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {exp.company}
-                          </p>
-                        </div>
-                        <span className="text-xs text-muted-foreground">
-                          {exp.period}
-                        </span>
-                      </div>
-                      <div
-                        className={cn(
-                          "overflow-hidden transition-all duration-300",
-                          hoveredExp === i ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-                        )}
-                      >
-                        <p className="border-l-2 border-accent/30 ml-6 pl-4 py-2 text-xs leading-relaxed text-muted-foreground">
-                          {exp.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -115,6 +69,37 @@ export function About() {
             </ScrollReveal>
           </div>
         </div>
+
+        <ScrollReveal delay={0.2}>
+          <div className="mt-24">
+            <h3 className="mb-8 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+              Experience
+            </h3>
+            <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+              {experience.map((exp, i) => (
+                <div
+                  key={exp.company}
+                  className={i > 0 ? "border-t border-border" : ""}
+                >
+                  <div className="grid gap-2 p-6 sm:grid-cols-[1fr_auto] sm:items-center">
+                    <div>
+                      <p className="text-base font-semibold">{exp.role}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {exp.company}
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                        {exp.description}
+                      </p>
+                    </div>
+                    <span className="text-xs text-muted-foreground sm:text-right">
+                      {exp.period}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

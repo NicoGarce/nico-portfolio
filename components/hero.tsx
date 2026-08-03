@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { GithubIcon, LinkedinIcon, XIcon } from "./social-icons";
+import { GithubIcon, LinkedinIcon } from "./social-icons";
 import { socialLinks } from "@/data/projects";
 
 export function Hero() {
@@ -206,15 +206,6 @@ export function Hero() {
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             <LinkedinIcon className="h-5 w-5" />
-          </a>
-          <a
-            href={socialLinks.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <XIcon className="h-5 w-5" />
           </a>
         </motion.div>
       </div>

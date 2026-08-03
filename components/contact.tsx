@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Send, Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon, XIcon } from "./social-icons";
+import { GithubIcon, LinkedinIcon } from "./social-icons";
 import { socialLinks } from "@/data/projects";
 import { ScrollReveal } from "./scroll-reveal";
 import { cn } from "@/lib/utils";
@@ -11,6 +11,8 @@ export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -24,12 +26,33 @@ export function Contact() {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError("");
     const newErrors = validate();
     setErrors(newErrors);
-    if (Object.keys(newErrors).length === 0) {
-      setSubmitted(true);
+    if (Object.keys(newErrors).length > 0) return;
+
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json().catch(() => null);
+        setSubmitError(
+          data?.error ?? "Something went wrong. Please try again."
+        );
+      }
+    } catch {
+      setSubmitError("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
     }
   };
 
@@ -150,12 +173,17 @@ export function Contact() {
                   )}
                 </div>
 
+                {submitError && (
+                  <p className="text-xs text-red-500">{submitError}</p>
+                )}
+
                 <button
                   type="submit"
-                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-foreground text-sm font-medium text-background transition-all hover:opacity-90 sm:w-auto sm:px-8"
+                  disabled={sending}
+                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-foreground text-sm font-medium text-background transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:px-8"
                 >
                   <Send className="h-4 w-4" />
-                  Send Message
+                  {sending ? "Sending..." : "Send Message"}
                 </button>
               </form>
             )}
@@ -192,15 +220,6 @@ export function Contact() {
                     className="flex h-12 w-12 items-center justify-center rounded-xl border border-border text-muted-foreground transition-all hover:border-accent/30 hover:text-foreground"
                   >
                     <LinkedinIcon className="h-5 w-5" />
-                  </a>
-                  <a
-                    href={socialLinks.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Twitter"
-                    className="flex h-12 w-12 items-center justify-center rounded-xl border border-border text-muted-foreground transition-all hover:border-accent/30 hover:text-foreground"
-                  >
-                    <XIcon className="h-5 w-5" />
                   </a>
                   <a
                     href={`mailto:${socialLinks.email}`}
